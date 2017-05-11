@@ -1,0 +1,34 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>一覧</title>
+  <script type="text/javascript">
+    function deleteId(id) {
+      if (window.confirm("削除しますか？")) {
+        location.href = "/destroy/" + id;
+      } else {
+        return;
+      }
+    }
+  </script>
+</head>
+<body>
+  <table boder="1">
+  <tr>
+    <th>#</th>
+    <th>タイトル</th>
+    <th>名前</th>
+  </tr>
+  {{#posts}}
+  <tr>
+    <td>{{id}}</td>
+    <td>{{title}}</td>
+    <td>{{name}}</td>
+    <td><a href="/edit/{{id}}">Edit</a></td>
+    <td><a href="javascript:deleteId('{{id}}')">Delete</a></td>
+  </tr>
+  {{/posts}}
+  </table>
+  <a href="/new">New</a>
+</body>
+</html>
